@@ -95,7 +95,8 @@ div.style.background = "#555";
 div.style.textAlign = "center";
 div.style.lineHeight = "26px";
 div.innerHTML = text.substr(0,1);
-a.appendChild(div);
+//a.appendChild(div);
+a.insertBefore(div, a.children[0]); //插入到指定的位置之前
 }
 //实现时间和问候语的函数
 function myTime()
