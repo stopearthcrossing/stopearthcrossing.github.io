@@ -79,6 +79,24 @@ p,h3 {
 	}
 </style>
 <script type="text/javascript">
+//实现logo加载失败时用默认图片替换
+function nofind(img)
+{
+var a = img.parentNode;
+a.removeChild(img);
+var text = a.children[0].innerHTML;
+var div=document.createElement("div"); //创建默认logo
+div.style.float = "left";
+div.style.width = "26px";
+div.style.height = "26px";
+div.style.borderRadius = "50%";
+div.style.color = "#ffffff";
+div.style.background = "#555";
+div.style.textAlign = "center";
+div.style.lineHeight = "26px";
+div.innerHTML = text.substr(0,1);
+a.appendChild(div);
+}
 //实现时间和问候语的函数
 function myTime()
 {
@@ -187,287 +205,287 @@ if (srcdiv != divdom)
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.dogedoge.com/" target="_blank" style="text-decoration:none">
-			<img src="https://www.dogedoge.com/assets/new_logo_header.min.png" alt="logo">
+			<img src="https://www.dogedoge.com/assets/new_logo_header.min.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">多吉</h3>
 			<p class="web_disc">不追踪，不误导</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://translate.google.cn/" target="_blank" style="text-decoration:none">
-			<img src="https://image.uisdc.com/wp-content/uploads/2018/09/sdcnav23-3-2.png" alt="logo">
+			<img src="https://image.uisdc.com/wp-content/uploads/2018/09/sdcnav23-3-2.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">谷歌翻译</h3>
 			<p class="web_disc">唯一打得开的谷歌网站</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.acfun.cn/" target="_blank" style="text-decoration:none">
-			<img src="https://cdn.aixifan.com/ico/favicon.ico" alt="logo">
+			<img src="https://cdn.aixifan.com/ico/favicon.ico" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">A 站</h3>
 			<p class="web_disc">认真你就输了</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.bilibili.com/" target="_blank" style="text-decoration:none">
-			<img src="https://image.uisdc.com/wp-content/uploads/2018/08/sdcnav-15-8.png" alt="logo">
+			<img src="https://image.uisdc.com/wp-content/uploads/2018/08/sdcnav-15-8.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">B 站</h3>
 			<p class="web_disc">有弹幕，无广告<br />配合吃饭更佳:)</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.clicli.me/" target="_blank" style="text-decoration:none">
-			<img src="http://q1.qlogo.cn/g?b=qq&nk=3179737489&s=640" alt="logo">
+			<img src="http://q1.qlogo.cn/g?b=qq&nk=3179737489&s=640" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">C 站</h3>
 			<p class="web_disc">代码开源的弹幕视频网站</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="http://ddrk.me/" target="_blank" style="text-decoration:none">
-			<img src="http://ddrk.me/favicon-32x32.png" alt="logo">
+			<img src="http://ddrk.me/favicon-32x32.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">DD影视</h3>
 			<p class="web_disc">超清影视剧，无广告</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.ted.com/" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/ted.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/ted.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">TED</h3>
 			<p class="web_disc">Ideas worth spreading</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://github.com" target="_blank" style="text-decoration:none">
-			<img src="https://github.githubassets.com/favicons/favicon.png" alt="logo">
+			<img src="https://github.githubassets.com/favicons/favicon.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">Github</h3>
 			<p class="web_disc">这个网站的老家</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.skypixel.com/" target="_blank" style="text-decoration:none">
-			<img src="https://image.uisdc.com/wp-content/uploads/2018/09/sdcnav23-1-13.png" alt="logo">
+			<img src="https://image.uisdc.com/wp-content/uploads/2018/09/sdcnav23-1-13.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">天空之城</h3>
 			<p class="web_disc">全球各地的航拍与摄影</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.missevan.com/" target="_blank" style="text-decoration:none">
-			<img src="https://www.missevan.com/images/index/favicon.ico" alt="logo">
+			<img src="https://www.missevan.com/images/index/favicon.ico" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">猫耳</h3>
 			<p class="web_disc">M站听电台/音乐/翻唱/小说/广播剧</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://music.163.com/" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/163music.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/163music.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">网易云音乐</h3>
 			<p class="web_disc">有事没事网易云</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://cn.freeimages.com" target="_blank" style="text-decoration:none">
-			<img src="https://images.freeimages.com/static/images/favicon/apple-touch-icon-60x60.png" alt="logo">
+			<img src="https://images.freeimages.com/static/images/favicon/apple-touch-icon-60x60.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">FreeImages</h3>
 			<p class="web_disc">图片搜索，个人和商业使用全部免费</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://unsplash.com" target="_blank" style="text-decoration:none">
-			<img src="https://unsplash.com/apple-touch-icon.png" alt="logo">
+			<img src="https://unsplash.com/apple-touch-icon.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">Unsplash</h3>
 			<p class="web_disc">搜图首推，个人或者商业免费使用</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://colorhub.me/" target="_blank" style="text-decoration:none">
-			<img src="https://colorhub.me/colorhub.png" alt="logo">
+			<img src="https://colorhub.me/colorhub.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">ColorHub</h3>
 			<p class="web_disc">中文搜图，个人或者商业免费使用</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.ssyer.com/" target="_blank" style="text-decoration:none">
-			<img src="https://www.ssyer.com/favicon.ico" alt="logo">
+			<img src="https://www.ssyer.com/favicon.ico" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">沙沙野</h3>
 			<p class="web_disc">国内较大的无版权高清图片网站</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://zh.wiki.sxisa.org/wiki/Wikipedia:首页" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/wikipedia.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/wikipedia.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">中文维基百科</h3>
 			<p class="web_disc">全中文，速度还不错</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://wanweibaike.com" target="_blank" style="text-decoration:none">
-			<img src="https://wanweibaike.com/Public/img/favicon.ico" alt="logo">
+			<img src="https://wanweibaike.com/Public/img/favicon.ico" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">万维百科</h3>
 			<p class="web_disc">内容源于维基百科，有多种语言</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.zhihu.com/explore" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/zhihu.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/zhihu.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">知乎</h3>
 			<p class="web_disc">当代知识分子的八卦之地</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://zh.wikihow.com/%E9%A6%96%E9%A1%B5" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/wikihow.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/wikihow.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">wikiHow</h3>
 			<p class="web_disc">我们希望帮助这个星球上的所有人</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.guokr.com/" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/guokr.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/guokr.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">果壳</h3>
 			<p class="web_disc">各种科普小短文，值得一看</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.instructables.com/" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/instructables.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/instructables.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">instructables</h3>
 			<p class="web_disc">老外的手工网站，各种有趣的制作</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.huxiu.com/article/" target="_blank" style="text-decoration:none">
-			<img src="https://www.huxiu.com/public/logo-120.png" alt="logo">
+			<img src="https://www.huxiu.com/public/logo-120.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">虎嗅</h3>
 			<p class="web_disc">即刻的替代品</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://shuge.org/" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/shuge.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/shuge.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">书格</h3>
 			<p class="web_disc">能找到很多古籍图书，还能下载</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://book.douban.com/" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/doubanbook.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/doubanbook.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">豆瓣读书</h3>
 			<p class="web_disc">无聊的时候来看看有什么新书上市</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://uk.phaidon.com/" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/phaidon.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/phaidon.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">PHAIDON</h3>
 			<p class="web_disc">啊！那些美丽的进口图书</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.amazon.cn/Kindle%E5%95%86%E5%BA%97/b?node=116087071" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/kindle.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/kindle.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">Kindle电子书</h3>
 			<p class="web_disc">用来看书，还是用来盖泡面</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="http://jandan.net/" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/jandan.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/jandan.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">煎蛋</h3>
 			<p class="web_disc">地球上没有新鲜事</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://fancy.com/" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/fancy.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/fancy.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">Fancy</h3>
 			<p class="web_disc">来看老外分享的剁手好物</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.taobao.com/" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/taobao.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/taobao.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">淘宝</h3>
 			<p class="web_disc">我和马爸爸的几千亿项目</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.jd.com/" target="_blank" style="text-decoration:none">
-			<img src="https://www.jd.com/favicon.ico" alt="logo">
+			<img src="https://www.jd.com/favicon.ico" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">京东</h3>
 			<p class="web_disc">买电子产品上京东自营</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.amazon.com/" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/amazon.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/amazon.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">Amazon</h3>
 			<p class="web_disc">海淘，了解一下</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://thngs.co/" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/thngs.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/thngs.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">Thngs</h3>
 			<p class="web_disc">a place for everything</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://sspai.com/" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/sspai.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/sspai.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">少数派</h3>
 			<p class="web_disc">最新的电子产品与软件资讯</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.iplaysoft.com/" target="_blank" style="text-decoration:none">
-			<img src="https://cdn.iplaysoft.com/ips/icon/favicon-v1/favicon.ico" alt="logo">
+			<img src="https://cdn.iplaysoft.com/ips/icon/favicon-v1/favicon.ico" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">异次元软件世界</h3>
 			<p class="web_disc">良心又漂亮的软件下载网站</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="http://www.archdaily.cn/cn" target="_blank" style="text-decoration:none">
-			<img src="https://assets.adsttc.com/ico/cn/apple-touch-icon-60x60.png" alt="logo">
+			<img src="https://assets.adsttc.com/ico/cn/apple-touch-icon-60x60.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">ArchDaily</h3>
 			<p class="web_disc">世界最受欢迎的建筑网站</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://ptable.com/" target="_blank" style="text-decoration:none">
-			<img src="https://www.ptable.com/Images/icon-57.png" alt="logo">
+			<img src="https://www.ptable.com/Images/icon-57.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">元素周期表</h3>
 			<p class="web_disc">重温锂钠钾铷铯钫，铍镁钙锶钡镭</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.beautifulchemistry.net/home-cn" target="_blank" style="text-decoration:none">
-			<img src="https://static1.squarespace.com/static/55520a32e4b08eb084d46a8d/t/556c7245e4b099a4afb2beeb/favicon.ico" alt="logo">
+			<img src="https://static1.squarespace.com/static/55520a32e4b08eb084d46a8d/t/556c7245e4b099a4afb2beeb/favicon.ico" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">美丽的化学</h3>
 			<p class="web_disc">各种各样美丽的化学反应</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="http://www.bskk.net" target="_blank" style="text-decoration:none">
-			<img src="https://www.mingyantong.com/favicon.ico" alt="logo">
+			<img src="https://www.mingyantong.com/favicon.ico" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">大藏经</h3>
 			<p class="web_disc">如世尊言，一切法无我</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.66e.cc/" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/doubanmovie.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/doubanmovie.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">电影天堂</h3>
 			<p class="web_disc">片源多，更新快，链接可靠</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://alapi.net/doc/show/1.html" target="_blank" style="text-decoration:none">
-			<img src="http://lackar.com/aa/icon/doubanmovie.png" alt="logo">
+			<img src="http://lackar.com/aa/icon/doubanmovie.png" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">ALAPI</h3>
 			<p class="web_disc">各种API接口</p>
 		</a>
 	</div>
 	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
 		<a href="https://www.wallpaper.com" target="_blank" style="text-decoration:none">
-			<img src="https://www.wallpaper.com/fav/apple-touch-icon-60x60.png?4257016" alt="logo">
+			<img src="https://www.wallpaper.com/fav/apple-touch-icon-60x60.png?4257016" alt="logo" onerror="nofind(this)">
 			<h3 class="web_name">Wallpaper</h3>
 			<p class="web_disc">非常精美的壁纸图片</p>
 		</a>
