@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>易经64卦</title>
+        
+        <link rel="stylesheet" type="text/css" href="Yi_styles.css" />
+        
+        <script src="jquery-1.11.1.min.js" type="text/javascript"></script>
+        <script src="Yi_index.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="page-title">
+            <h2>易经64卦</h2>
+            <p>By Yun</p>
+        </div>
+        <div class="gua-box">
+            <div class="background-word">主卦</div>
+            <div class="gua-title">
+                <span id="gua-number"></span>.<span id="gua-name"></span>
+                <span id="gua-detail"></span>
+            </div>
+            <div class="gua">
+                <div id="yao6" class="yao yao-dynamic"><div class="yinyang yang"></div></div>
+                <div id="yao5" class="yao yao-mg yao-dynamic"><div class="yinyang yang"></div></div>
+                <div id="yao4" class="yao yao-split yao-dynamic"><div class="yinyang yang"></div></div>
+            
+                <div id="yao3" class="yao yao-dynamic"><div class="yinyang yang"></div></div>
+                <div id="yao2" class="yao yao-mg yao-dynamic"><div class="yinyang yang"></div></div>
+                <div id="yao1" class="yao yao-dynamic"><div class="yinyang yang"></div></div>
+            </div>
+            <div id="dong-yao">动爻
+                <select id="select-list">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+                <input type="button" value="确 认" onclick="submit_fun()" />
+            </div>
+        </div>
+        
+        <div class="gua-box">
+            <div class="background-word">互卦</div>
+            <div class="gua-title">
+                <span id="hu-gua-number"></span>.<span id="hu-gua-name"></span>
+                <span id="hu-gua-detail"></span>
+            </div>
+            <div class="gua">
+                <div id="hu-yao6" class="yao"><div class="yinyang yang"></div></div>
+                <div id="hu-yao5" class="yao yao-mg"><div class="yinyang yang"></div></div>
+                <div id="hu-yao4" class="yao yao-split"><div class="yinyang yang"></div></div>
+            
+                <div id="hu-yao3" class="yao"><div class="yinyang yang"></div></div>
+                <div id="hu-yao2" class="yao yao-mg"><div class="yinyang yang"></div></div>
+                <div id="hu-yao1" class="yao"><div class="yinyang yang"></div></div>
+            </div>
+        </div>
+        
+        <div class="gua-box">
+            <div class="background-word">变卦</div>
+            <div id="bian-gua">
+                <div class="gua-title">
+                    <span id="bian-gua-number"></span>.<span id="bian-gua-name"></span>
+                    <span id="bian-gua-detail"></span>
+                </div>
+                <div class="gua">
+                    <div id="bian-yao6" class="yao"><div class="yinyang yang"></div></div>
+                    <div id="bian-yao5" class="yao yao-mg"><div class="yinyang yang"></div></div>
+                    <div id="bian-yao4" class="yao yao-split"><div class="yinyang yang"></div></div>
+            
+                    <div id="bian-yao3" class="yao"><div class="yinyang yang"></div></div>
+                    <div id="bian-yao2" class="yao yao-mg"><div class="yinyang yang"></div></div>
+                    <div id="bian-yao1" class="yao"><div class="yinyang yang"></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gua-box">
+            <div class="background-word">体卦</div>
+            <div id="ti-gua">
+                <div class="gua-title">
+                    <span id="ti-gua-name"></span>
+                </div>
+                <div class="gua">
+                    <div id="ti-yao3" class="yao"><div class="yinyang yang"></div></div>
+                    <div id="ti-yao2" class="yao yao-mg"><div class="yinyang yang"></div></div>
+                    <div id="ti-yao1" class="yao"><div class="yinyang yang"></div></div>
+                </div>
+                <div id="ti-gua-detail" class="wu-xing"></div>
+                <div id="ti-relation" class="relation"></div>
+            </div>
+        </div>
+        
+        <div class="gua-box">
+            <div class="background-word">用卦</div>
+            <div id="yong-gua">
+                <div class="gua-title">
+                    <span id="yong-gua-name"></span>
+                </div>
+                <div class="gua">
+                    <div id="yong-yao3" class="yao"><div class="yinyang yang"></div></div>
+                    <div id="yong-yao2" class="yao yao-mg"><div class="yinyang yang"></div></div>
+                    <div id="yong-yao1" class="yao"><div class="yinyang yang"></div></div>
+                </div>
+                <div id="yong-gua-detail" class="wu-xing"></div>
+                <div id="yong-relation" class="relation"></div>
+            </div>
+        </div>
+    </body>
+</html>
