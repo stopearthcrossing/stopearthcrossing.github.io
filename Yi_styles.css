@@ -211,3 +211,12 @@ ul {
     color: var(--clr-dark);
     text-align: center;
 }
+
+#sc {
+	margin-left: 18%;
+}
+
+#tc {
+	text-align: center;
+    font-size: 200px;
+}
