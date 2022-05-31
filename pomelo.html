@@ -1,0 +1,462 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, inital-scale=1">
+<title>rainbow</title>
+<link rel="stylesheet" href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css">
+<style type="text/css">
+body {
+	background-color:#ADB282;
+	font-family:"Microsoft Yahei",Tahoma,Verdana,sans-serif;
+	}
+.header {
+	height:50px;
+	padding:10px 20px 10px 20px;
+	}
+.content {
+	margin-top:5px;
+	}
+.greeting {
+	float:left;
+	padding-right:15px;
+	padding-left:15px;
+	border-right:2px solid;
+	color:#ffffff;
+	font-size:16px;
+	font-weight:bold;
+	overflow:hidden;
+	}
+.poem {
+	float:left;
+	padding-left:15px;
+	color:#ffffff;
+	}
+.showTime {
+	color:#F5F5F5;
+	font-size:16px;
+	font-weight:normal;
+	}
+img{
+	float:left;
+	width:26px;
+	height:26px;
+	border-radius:100%;
+	}
+p,h3 {
+	margin:0;
+	}
+.webs {
+	margin-left:25px;
+	margin-bottom:10px;
+	background-color:#eeeeee;
+	float:left;
+	width:130px;
+	height:55px;
+	line-height:1.2em;
+	padding:10px;
+	border-radius:6px;
+	box-shadow:2px 2px 3px #3c3c3c;
+	}
+.webs:hover {
+	background-color:#d5d5d5;
+	}
+.web_name {
+	margin-left:32px;
+	margin-bottom:5px;
+	color:#3c3c3c;
+	height:16px;
+	line-height:16px;
+	font-size:16px;
+	font-weight:bold;
+	white-space:nowrap;
+	overflow:hidden;
+	}
+.web_disc {
+	margin-left:32px;
+	color:#8f8f8f;
+	font-size:12px;
+	}
+</style>
+<script type="text/javascript">
+//实现logo加载失败时用默认图片替换
+function nofind(img)
+{
+var a = img.parentNode;
+a.removeChild(img);
+var text = a.children[0].innerHTML;
+var div=document.createElement("div"); //创建默认logo
+div.style.float = "left";
+div.style.width = "26px";
+div.style.height = "26px";
+div.style.borderRadius = "50%";
+div.style.color = "#ffffff";
+var colorlist = ["#555","#ADB282","#99CCCC","#FF9966","#FF6666","#CC99CC"];
+div.style.background = colorlist[Math.floor(Math.random()*colorlist.length)];
+div.style.textAlign = "center";
+div.style.lineHeight = "26px";
+div.innerHTML = text.substr(0,1);
+//a.appendChild(div);
+a.insertBefore(div, a.children[0]); //插入到指定的位置之前
+}
+//实现时间和问候语的函数
+function myTime()
+{
+var today=new Date()
+var y=today.getFullYear()
+var m=today.getMonth()+1; //获取月份，返回0-11
+var d=today.getDate()
+var h=today.getHours()
+var min=today.getMinutes()
+var s=today.getSeconds()
+min=checkTime(min)
+s=checkTime(s)
+x=greeting(h)
+document.getElementById('greeting').innerHTML=x+"Pomelo :)"
+document.getElementById('showTime').innerHTML=y+"年"+m+"月"+d+"日"+"  "+h+":"+min+":"+s
+t=setTimeout('myTime()',500)
+}
+function checkTime(i)
+{
+if (i<10)
+	{i="0"+i}
+	return i
+}
+function greeting(i)
+{
+var x=""
+if (i>18)
+	{x="晚上好！"}
+else if (i>12)
+	{x="下午好！"}
+else if (i>8)
+	{x="上午好！"}
+else if (i>5)
+	{x="早上好！"}
+else
+	{x="夜深了！"}
+return x
+}
+//实现每日一句的函数
+function poem()
+{
+//var data = "type=a&format=json";//POST方式时启用,并作为send的参数
+var xhr = new XMLHttpRequest();
+//xhr.withCredentials = true;//此语句会造成跨域请求失败
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState == 4) {
+    console.log(xhr.status);
+	var str = this.responseText.replace(/[\r\n]/g,"");
+	var jsondata = JSON.parse(str);
+	document.getElementById('poem').innerHTML=jsondata.data.hitokoto+"——"+jsondata.data.from;
+  }
+});
+
+xhr.open("GET", "https://v1.alapi.cn/api/hitokoto", async=true);
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+xhr.send();
+}
+//实现修改背景色的函数
+function changecolor(divdom)
+{
+document.body.style.backgroundColor=divdom.style.backgroundColor;
+}
+//实现拖动的函数
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
+var srcdiv = null;
+function drag(ev,divdom)
+{
+srcdiv=divdom;
+ev.dataTransfer.setData("text/html",divdom.innerHTML);
+}
+function drop(ev,divdom)
+{
+ev.preventDefault();
+if (srcdiv != divdom)
+	{
+	srcdiv.innerHTML = divdom.innerHTML;
+	divdom.innerHTML=ev.dataTransfer.getData("text/html");
+	}
+}
+</script>
+</head>
+
+<body onload="myTime();poem()">
+	<div class="header">
+		<div class="greeting">
+			<span id="greeting"></span>
+			<span class="showTime" id="showTime"></span>
+		</div>
+		<div class="poem" id="poem"></div>
+	</div>
+	<div class="content">
+	<div class="webs">
+		<div style="background:#343031; height:25px; width:25px; float:left;" onclick="changecolor(this)"></div>
+		<div style="background:#ADB282; height:25px; width:25px; float:left;" onclick="changecolor(this)"></div>
+		<div style="background:#3A758C; height:25px; width:25px; float:left;" onclick="changecolor(this)"></div>
+		<div style="background:#666666; height:25px; width:25px; float:left;" onclick="changecolor(this)"></div>
+		<div style="background:#984D54; height:25px; width:25px; float:left;" onclick="changecolor(this)"></div>
+		<div style="background:#B0C4DE; height:25px; width:25px; float:left;" onclick="changecolor(this)"></div>
+		<div style="background:#84AF9B; height:25px; width:25px; float:left;" onclick="changecolor(this)"></div>
+		<div style="background:#2C3E50; height:25px; width:25px; float:left;" onclick="changecolor(this)"></div>
+		<div style="background:#684E41; height:25px; width:25px; float:left;" onclick="changecolor(this)"></div>
+		<div style="background:#3A758C; height:25px; width:25px; float:left;" onclick="changecolor(this)"></div>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://www.baidu.com/" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">百度</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://translate.google.cn/" target="_blank" style="text-decoration:none">
+			<img src="https://image.uisdc.com/wp-content/uploads/2018/09/sdcnav23-3-2.png" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">谷歌翻译</h3>
+			<p class="web_disc">唯一打得开的谷歌网站</p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://fanyi.sogou.com/picture" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">图片翻译</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://www.aliexpress.com/" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">店</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://www.aliexpress.com/" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">店</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="http://seller.dhgate.com/mydh/index.do" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">敦煌店</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://seller.my.shopee.cn/account/signin?next=%2F" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">shopee店</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://www.alibaba.com/?spm=a2700.7746188.0.0.2cbbKxccKxccX3" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">阿里巴巴</h3>
+			<p class="web_disc">阿里巴巴首页</p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://xxy.logistic.wang/track" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">内部追踪</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="http://www.pdfdo.com/pdf-to-image.aspx" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">pdf转格式</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://www.onlinedoctranslator.com/zh-CN/translationform" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">说明书翻译</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://mail.google.com/mail/u/0/#sent/QgrcJHrjBQrWcLkmpfgvmjQtbmPjzfNrXTQ" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">Gmail</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://mail.yandex.com/" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">yandex</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://mail.qq.com/" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">qq邮箱</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://portal.worldfirst.com.cn/login" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">万里汇</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://www.17track.net/en" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">17全球追踪</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://xxy.logistic.wang/home/Index" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">鑫秀源货代</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://www.ups.com/track?loc=zh_CN&requester=MB/trackdetails" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">UPS中文</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://www.ups.com/track?loc=en_US&tracknum=1Z558R760400640964&requester=WT/trackdetails" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">UPS美国</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://www.dhl.com/cn-zh/home/tracking/tracking-express.html?submit=1&tracking-id=1261562901" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">DHL追踪</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://www.fedex.com/apps/fedextrack/?action=track&trackingnumber=781115409680&cntry_code=cn&locale=zh_CN" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">FEDEX追踪</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="http://www.gsmbest.club/" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">速俄追踪</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://www.jde.ru/" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">莫斯科追踪</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://www.tnt.com/express/zh_cn/site/shipping-tools/tracking.html?searchType=CON&cons=847776301" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">TNT追踪</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="http://www.baslexpress.com/" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">澳大利亚追踪</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://tracking.sagawa-sgx.com/sgx/trackeng.asp" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">日本追踪</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://www.paypal.com/c2/webapps/mpp/home" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">Paypal</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://www.hsbianma.com/" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">海关编码</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="http://szhjx.itdida.com/caoZuo.xhtml" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">王春网站</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://818ps.com/?user_source=r1463307" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">图怪兽</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://www.dianxiaomi.com/crawl/index.htm" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">店小秘</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://www.amazon.com.au" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">亚马逊国际</h3>
+			<p class="web_disc"></p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://aiveera.com/" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">Aiveera</h3>
+			<p class="web_disc">速卖通以图搜货</p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://www.amz520.com/" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">Amz520</h3>
+			<p class="web_disc">跨境电商常用工具和资讯</p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="https://zh.wiki.sxisa.org/wiki/Wikipedia:首页" target="_blank" style="text-decoration:none">
+			<img src="http://lackar.com/aa/icon/wikipedia.png" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">中文维基百科</h3>
+			<p class="web_disc">全中文，速度还不错</p>
+		</a>
+	</div>
+	<div class="webs" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+		<a href="Yi_index.html" target="_blank" style="text-decoration:none">
+			<img src="" alt="logo" onerror="nofind(this)">
+			<h3 class="web_name">易</h3>
+			<p class="web_disc">善易者不卜</p>
+		</a>
+	</div>
+	</div>
+</body>
+</html>
