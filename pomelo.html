@@ -148,7 +148,7 @@ xhr.addEventListener("readystatechange", function () {
     console.log(xhr.status);
 	var str = this.responseText.replace(/[\r\n]/g,"");
 	var jsondata = JSON.parse(str);
-	document.getElementById('poem').innerHTML=jsondata.data.hitokoto+"——"+jsondata.data.from;
+	document.getElementById('poem').innerHTML=jsondata.content;
   }
 });
 
