@@ -148,11 +148,11 @@ xhr.addEventListener("readystatechange", function () {
     console.log(xhr.status);
 	var str = this.responseText.replace(/[\r\n]/g,"");
 	var jsondata = JSON.parse(str);
-	document.getElementById('poem').innerHTML=jsondata.data.hitokoto+"——"+jsondata.data.from;
+	document.getElementById('poem').innerHTML=jsondata.content;
   }
 });
 
-xhr.open("GET", "https://v1.alapi.cn/api/hitokoto", async=true);
+xhr.open("GET", "https://v1.jinrishici.com/all.json", async=true);
 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 xhr.send();
 }
