@@ -858,6 +858,7 @@ function load_gua(gua_coding) {
                 
                 var name = gb.gua[i]['gua-name'];
                 //$('#background-word').text(name);
+                $('#gua-coding').attr('href', 'Yi_viewer.html?id=' + gua_coding);
                 $('#gua-number').text(i + 1);
                 $('#gua-name').text(get_gua_name(gua_coding, name));
                 $('#gua-detail').text(gb.gua[i]['gua-detail']);
@@ -903,6 +904,10 @@ function load_hu_gua() {
                 }
                 //console.log(hu_gua_coding);
                 var name = gb.gua[i]['gua-name'];
+                $('#hu-gua-coding').attr('href', 'Yi_viewer.html?id=' + hu_gua_coding).attr('target', '_blank');
+                console.log('设置的href值为:', 'Yi_viewer.html?id=' + hu_gua_coding);
+                console.log('获取到的href属性为:', $('#hu-gua-coding').attr('href'));
+                console.log('hu-gua-coding 元素数量:', $('#hu-gua-coding').length);
                 $('#hu-gua-number').text(i + 1);
                 $('#hu-gua-name').text(get_gua_name(hu_gua_coding, name));
                 $('#hu-gua-detail').text(gb.gua[i]['gua-detail']);
@@ -934,8 +939,12 @@ function load_bian_gua() {
                         yao.addClass('yin', 1000).removeClass('yang');
                     }
                 }
-                console.log(bian_gua_coding);
+                //console.log(bian_gua_coding);
                 var name = gb.gua[i]['gua-name'];
+                $('#bian-gua-coding').attr('href', 'Yi_viewer.html?id=' + bian_gua_coding).attr('target', '_blank');
+                console.log('设置的href值为:', 'Yi_viewer.html?id=' + bian_gua_coding);
+                console.log('获取到的href属性为:', $('#bian-gua-coding').attr('href'));
+                console.log('bian-gua-coding 元素数量:', $('#bian-gua-coding').length);
                 $('#bian-gua-number').text(i + 1);
                 $('#bian-gua-name').text(get_gua_name(bian_gua_coding, name));
                 $('#bian-gua-detail').text(gb.gua[i]['gua-detail']);
@@ -974,6 +983,7 @@ function load_ti_gua() {
                 var name = gua_and_xing.gua[i]['gua-name'];
                 //$('#ti-gua-number').text(i + 1);
                 $('#ti-gua-name').text(name);
+                $('#ti-gua-fang-wei').text(gua_and_xing.gua[i]['fang-wei']);
                 $('#ti-gua-detail').text(gua_and_xing.gua[i]['wu-xing']);
                 return true;
             }
@@ -1010,6 +1020,7 @@ function load_yong_gua() {
                 var name = gua_and_xing.gua[i]['gua-name'];
                 //$('#ti-gua-number').text(i + 1);
                 $('#yong-gua-name').text(name);
+                $('#yong-gua-fang-wei').text(gua_and_xing.gua[i]['fang-wei']);
                 $('#yong-gua-detail').text(gua_and_xing.gua[i]['wu-xing']);
                 return true;
             }

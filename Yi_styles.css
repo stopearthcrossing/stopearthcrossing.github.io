@@ -45,6 +45,26 @@ ul {
     margin-left: 20px;
 }
 
+/* 让a标签继承父元素的样式，并去除默认样式 */
+a {
+    text-decoration: none; /* 去除下划线 */
+    color: inherit; /* 继承父元素的颜色 */
+    font-family: inherit; /* 继承父元素的字体 */
+    font-size: inherit; /* 继承父元素的字体大小 */
+    font-weight: inherit; /* 继承父元素的字体粗细 */
+    /* 其他需要继承的属性也可以类似设置 */
+}
+
+/* 以下为a标签的不同状态，同样继承父元素样式 */
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: inherit;
+    text-decoration: inherit;
+    /* 其他属性继承 */
+}
+
 .gua-box {
     margin-left: 10px;
     margin-bottom: 10px;
@@ -129,6 +149,8 @@ ul {
     cursor: default;
     /*overflow:hidden;*/
     transition-duration: 0.5s;
+    display: flex;
+    justify-content: space-between;
 }    
     .gua-title #gua-detail,.gua-title #hu-gua-detail,.gua-title #bian-gua-detail,.gua-title #step-detail {
         color: var(--clr-dark);
@@ -219,4 +241,9 @@ ul {
 #tc {
 	text-align: center;
     font-size: 200px;
+}
+
+#description {
+    display: block;
+    justify-content: none;
 }
