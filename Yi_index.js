@@ -858,7 +858,7 @@ function load_gua(gua_coding) {
                 
                 var name = gb.gua[i]['gua-name'];
                 //$('#background-word').text(name);
-                $('#gua-coding').attr('href', 'Yi_viewer.html?id=' + gua_coding);
+                $('#gua-coding').attr('href', 'Yi_viewer.html?id=' + gua_coding).attr('target', '_blank');
                 $('#gua-number').text(i + 1);
                 $('#gua-name').text(get_gua_name(gua_coding, name));
                 $('#gua-detail').text(gb.gua[i]['gua-detail']);
